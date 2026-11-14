@@ -1,0 +1,130 @@
+/* Terenowa 5: generator dyplomów. Wartości z systemu marki (tokens.json). */
+
+/* Fonty: Barlow Condensed i Barlow, lokalnie, z polskimi znakami (latin + latin-ext) */
+@font-face{font-family:"Barlow Condensed";font-weight:600;font-style:normal;font-display:swap;src:url(fonts/barlow-condensed-latin-600-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Barlow Condensed";font-weight:600;font-style:normal;font-display:swap;src:url(fonts/barlow-condensed-latin-ext-600-normal.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Barlow Condensed";font-weight:800;font-style:normal;font-display:swap;src:url(fonts/barlow-condensed-latin-800-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Barlow Condensed";font-weight:800;font-style:normal;font-display:swap;src:url(fonts/barlow-condensed-latin-ext-800-normal.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Barlow Condensed";font-weight:800;font-style:italic;font-display:swap;src:url(fonts/barlow-condensed-latin-800-italic.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Barlow Condensed";font-weight:800;font-style:italic;font-display:swap;src:url(fonts/barlow-condensed-latin-ext-800-italic.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Barlow";font-weight:400;font-style:normal;font-display:swap;src:url(fonts/barlow-latin-400-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Barlow";font-weight:400;font-style:normal;font-display:swap;src:url(fonts/barlow-latin-ext-400-normal.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Barlow";font-weight:500;font-style:normal;font-display:swap;src:url(fonts/barlow-latin-500-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Barlow";font-weight:500;font-style:normal;font-display:swap;src:url(fonts/barlow-latin-ext-500-normal.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+
+:root{
+  --brzoza:#F6F1E4; --brzoza-200:#EBE3CF;
+  --las-700:#0F3D2E; --las-900:#0B2C21; --las-500:#2C6B55;
+  --szlak:#FF5A1F; --szlak-700:#B8390B; --szlak-300:#FF8A5C;
+  --modrzew:#F2B21B; --mgla:#C4CFC1;
+  --kora:#14211C; --kora-500:#46544C;
+  --rule:#7E8577; --focus:#0F3D2E;
+  --font-display:"Barlow Condensed","Arial Narrow",sans-serif;
+  --font-body:Barlow,Arial,sans-serif;
+  --space-1:4px; --space-2:8px; --space-3:12px; --space-4:16px; --space-6:24px; --space-8:32px; --space-12:48px; --space-18:72px;
+  --radius-sm:4px;
+}
+
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--brzoza);color:var(--kora);font-family:var(--font-body);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1240px;margin:0 auto;padding:0 var(--space-8)}
+
+/* Klasy wspólne marki */
+.t5-d{font-family:var(--font-display);font-weight:800;font-style:italic;text-transform:uppercase;line-height:.92;margin:0}
+.t5-l{font-family:var(--font-display);font-weight:600;text-transform:uppercase;letter-spacing:.08em;font-size:15px;line-height:1.2;margin:0}
+.t5-pasy{display:block;height:24px;background:linear-gradient(var(--brzoza) 0 33.34%,var(--szlak) 33.34% 66.67%,var(--brzoza) 66.67% 100%)}
+
+/* Nagłówek strony */
+.top{background:var(--las-700);color:var(--brzoza);padding:var(--space-12) 0 var(--space-8)}
+.top__label{color:var(--szlak-300)}
+.top__title{font-size:clamp(48px,8vw,96px);margin-top:var(--space-3)}
+.top__lead{color:var(--mgla);font-size:20px;line-height:1.4;font-weight:500;margin:var(--space-4) 0 0;max-width:36ch}
+
+/* Układ */
+.app{display:grid;grid-template-columns:360px 1fr;gap:var(--space-8);padding-top:var(--space-12);padding-bottom:var(--space-12);align-items:start}
+@media (max-width:900px){.app{grid-template-columns:1fr}}
+
+/* Formularz */
+.panel{background:var(--brzoza-200);padding:var(--space-6);border-radius:var(--radius-sm)}
+.field__label{display:block;color:var(--kora-500);margin-bottom:var(--space-2);padding:0}
+.field__input{width:100%;font:600 26px/1.1 var(--font-display);color:var(--kora);background:var(--brzoza);border:1.5px solid var(--rule);border-radius:0;padding:var(--space-3) var(--space-4)}
+.field__input::placeholder{color:var(--kora-500);opacity:.7}
+.choice{border:0;margin:var(--space-6) 0 0;padding:0}
+.choice__opt{display:flex;align-items:stretch;gap:var(--space-3);background:var(--brzoza);border:1.5px solid var(--rule);padding:var(--space-3) var(--space-4);cursor:pointer;margin-top:var(--space-2);position:relative}
+.choice__opt::before{content:"";width:6px;flex:none;background:var(--szlak)}
+.choice__opt--dzieci::before{background:var(--modrzew)}
+.choice__opt input{position:absolute;opacity:0;pointer-events:none}
+.choice__opt:has(input:checked){border:2px solid var(--kora);padding:calc(var(--space-3) - .5px) calc(var(--space-4) - .5px)}
+.choice__opt:has(input:focus-visible){outline:2px solid var(--focus);outline-offset:2px}
+.choice__body{display:flex;flex-direction:column}
+.choice__name{font:800 24px/1 var(--font-display);text-transform:uppercase}
+.choice__meta{font-size:13px;color:var(--kora-500);margin-top:var(--space-1)}
+
+.actions{display:flex;gap:var(--space-3);margin-top:var(--space-6);flex-wrap:wrap}
+.btn{font:800 20px/1 var(--font-display);text-transform:uppercase;letter-spacing:.02em;border-radius:0;padding:var(--space-4) var(--space-6);cursor:pointer;border:2px solid var(--kora)}
+.btn--primary{background:var(--szlak);color:var(--kora);border-color:var(--szlak);flex:1}
+.btn--ghost{background:transparent;color:var(--kora)}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.btn:focus-visible,.field__input:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+.hint{font-size:13px;line-height:1.4;color:var(--kora-500);margin:var(--space-4) 0 0}
+
+/* Podgląd */
+.preview__frame{width:100%;aspect-ratio:1123/794;position:relative;overflow:hidden;outline:1px solid var(--rule)}
+.preview__scale{width:1123px;height:794px;transform-origin:0 0;position:absolute;left:0;top:0}
+
+/* Dyplom A4: 1123 x 794 px. Góra: treść (brzoza) i panel (las-700). Dół: pas sponsorów i taśma */
+.dyplom{position:relative;width:1123px;height:794px;overflow:hidden;background:var(--brzoza);color:var(--kora);font-family:var(--font-body)}
+.dyplom__main{position:absolute;left:0;top:0;width:763px;height:612px;padding:56px 56px 0 72px}
+.dyplom__kat{display:inline-block;font-size:20px;color:var(--kora);background:var(--szlak);padding:9px 16px 8px;border-radius:var(--radius-sm)}
+.dyplom--dzieci .dyplom__kat{background:var(--modrzew)}
+.dyplom__tytul{font-size:160px;margin-top:22px;color:var(--kora)}
+.dyplom__imie{margin-top:40px;width:620px;height:82px;border-bottom:5px solid var(--szlak);display:flex;align-items:flex-end;padding-bottom:10px;white-space:nowrap;overflow:hidden}
+.dyplom--dzieci .dyplom__imie{border-bottom-color:var(--modrzew)}
+.dyplom__imie span{font:600 62px/1 var(--font-display)}
+.dyplom__imie.is-empty span{color:var(--kora-500);opacity:.55}
+.dyplom__tekst{margin:24px 0 0;max-width:600px;font-size:23px;line-height:1.4;font-weight:500}
+
+/* Prawy panel */
+.dyplom__panel{position:absolute;right:0;top:0;width:360px;height:612px;background:var(--las-700);color:var(--brzoza);padding:40px 40px 34px;display:flex;flex-direction:column;align-items:center}
+.dyplom__pieczec{width:172px;height:172px;display:block}
+.dyplom__info{margin:26px 0 0;width:100%}
+.dyplom__info div{display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid #7C9587;padding:11px 0 10px}
+.dyplom__info div:last-child{border-bottom:1px solid #7C9587}
+.dyplom__info dt{color:var(--mgla);font-size:14px}
+.dyplom__info dd{margin:0;font:800 27px/1 var(--font-display);color:var(--brzoza);text-align:right}
+.dyplom__info .dyplom__info-miejsce{align-items:center}
+.dyplom__info .dyplom__info-miejsce dd{font-size:23px;line-height:1.05}
+.dyplom__zbiorka{margin-top:auto;width:100%;display:flex;align-items:center;gap:18px}
+.dyplom__qr{width:112px;height:112px;flex:none;display:block;background:var(--brzoza);padding:10px;border-radius:var(--radius-sm)}
+.dyplom__zbiorka p{margin:0}
+.dyplom__zbiorka-lab{font-size:15px;color:var(--szlak-300)}
+.dyplom--dzieci .dyplom__zbiorka-lab{color:var(--modrzew)}
+.dyplom__zbiorka-txt{margin-top:6px!important;font-size:17px;line-height:1.3;font-weight:500;color:var(--brzoza)}
+.dyplom__zbiorka-url{margin-top:6px!important;font-size:14px;color:var(--mgla)}
+
+/* Pas sponsorów: organizator, patronat, partnerzy */
+.sponsorzy{position:absolute;left:0;right:0;top:612px;height:154px;padding:18px 48px 0 72px;display:flex;gap:40px;align-items:flex-start}
+.sponsorzy__grupa{flex:none}
+.sponsorzy__grupa--partnerzy{flex:1;min-width:0}
+.sponsorzy__grupa .t5-l{font-size:12px;color:var(--kora-500);margin:0 0 10px}
+.sponsorzy__logos{display:flex;align-items:center;gap:12px 22px;min-height:56px}
+.sponsorzy__grupa--partnerzy .sponsorzy__logos{flex-wrap:wrap;min-height:0}
+.sponsorzy__logos img{display:block}
+.sponsorzy__nazwa{font:800 15px/1.05 var(--font-display);text-transform:uppercase;letter-spacing:.02em;color:var(--kora);max-width:120px}
+.sponsorzy__opis{margin:0;font-size:14px;line-height:1.3;font-weight:500;color:var(--kora)}
+.dyplom__tasma{position:absolute;left:0;bottom:0;width:1123px;height:28px;display:block}
+
+.foot{padding-bottom:var(--space-8);font-size:13px;color:var(--kora-500)}
+
+/* Druk: tylko dyplom, A4 w poziomie, bez marginesów */
+@page{size:A4 landscape;margin:0}
+@media print{
+  body{background:none}
+  .top,.t5-pasy,.panel,.foot{display:none!important}
+  .app{display:block;padding:0;max-width:none}
+  .wrap{padding:0}
+  .preview__frame{outline:0;width:297mm;height:210mm;aspect-ratio:auto;overflow:hidden}
+  .preview__scale{transform:none!important;width:297mm;height:210mm}
+  .dyplom{width:297mm;height:210mm;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}

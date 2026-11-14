@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dyplom, Terenowa 5, Bieg dla Ady</title>
+<meta name="description" content="Wpisz imię i nazwisko, wybierz bieg i pobierz dyplom za udział w Terenowej 5, Biegu dla Ady.">
+<link rel="icon" href="assets/pieczec-kolor.svg" type="image/svg+xml">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <p class="t5-l top__label">Bieg dla Ady, 14.11.2026</p>
+    <h1 class="t5-d top__title">Twój dyplom</h1>
+    <p class="top__lead">Wpisz imię i nazwisko, wybierz bieg i pobierz dyplom w PDF.</p>
+  </div>
+</header>
+<span class="t5-pasy" aria-hidden="true"></span>
+
+<main class="wrap app">
+  <form class="panel" id="form" autocomplete="off" novalidate>
+    <label class="t5-l field__label" for="name">Imię i nazwisko</label>
+    <input class="field__input" id="name" name="name" type="text" maxlength="48" placeholder="np. Anna Kowalska" required>
+
+    <fieldset class="choice">
+      <legend class="t5-l field__label">Bieg</legend>
+      <label class="choice__opt choice__opt--glowny">
+        <input type="radio" name="bieg" value="glowny" checked>
+        <span class="choice__body">
+          <span class="choice__name">Bieg główny</span>
+          <span class="choice__meta">około 5 km</span>
+        </span>
+      </label>
+      <label class="choice__opt choice__opt--dzieci">
+        <input type="radio" name="bieg" value="dzieci">
+        <span class="choice__body">
+          <span class="choice__name">Bieg dzieci</span>
+          <span class="choice__meta">do 500 m</span>
+        </span>
+      </label>
+    </fieldset>
+
+    <div class="actions">
+      <button class="btn btn--primary" id="pdf" type="submit">Pobierz PDF</button>
+      <button class="btn btn--ghost" id="print" type="button">Drukuj</button>
+    </div>
+    <p class="hint" id="status" role="status" aria-live="polite">Enter też pobiera dyplom. Po pobraniu pole czyści się dla kolejnej osoby.</p>
+  </form>
+
+  <section class="preview" aria-label="Podgląd dyplomu">
+    <div class="preview__frame" id="frame">
+      <div class="preview__scale" id="scale">
+
+        <!-- Dyplom: A4 w poziomie, 1123 x 794 px (297 x 210 mm przy 96 dpi) -->
+        <article class="dyplom dyplom--glowny" id="dyplom">
+          <div class="dyplom__main">
+            <p class="t5-l dyplom__kat" id="kat">Bieg główny</p>
+            <h2 class="t5-d dyplom__tytul" id="tytul">Dyplom</h2>
+            <div class="dyplom__imie" id="imie"><span id="imieTxt">Imię i nazwisko</span></div>
+            <p class="dyplom__tekst" id="tekst">za udział w Terenowej 5, Biegu dla Ady. Dziękujemy za każdy krok.</p>
+          </div>
+
+          <aside class="dyplom__panel">
+            <img class="dyplom__pieczec" src="assets/pieczec-odwrotne.svg" alt="Terenowa 5, Bieg dla Ady">
+            <dl class="dyplom__info">
+              <div><dt class="t5-l">Data</dt><dd>14.11.2026</dd></div>
+              <div class="dyplom__info-miejsce"><dt class="t5-l">Miejsce</dt><dd>Tor Motocrossowy<br>Głogów</dd></div>
+              <div><dt class="t5-l">Dystans</dt><dd id="dystans">około 5 km</dd></div>
+            </dl>
+            <div class="dyplom__zbiorka">
+              <div class="dyplom__qr" role="img" aria-label="Miejsce na kod QR zbiórki dla Ady"></div>
+              <div>
+                <p class="t5-l dyplom__zbiorka-lab">Zbiórka dla Ady</p>
+                <p class="dyplom__zbiorka-txt">Wesprzyj albo przekaż dalej</p>
+                <p class="dyplom__zbiorka-url">pomagam.pl/cy6cy8</p>
+              </div>
+            </div>
+          </aside>
+
+          <div class="sponsorzy" id="sponsorzy"></div>
+
+          <img class="dyplom__tasma" id="tasma" alt="" aria-hidden="true">
+        </article>
+
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="wrap foot">
+  <p>Organizator: Fundacja Beyond Space. Zbiórka dla Ady.</p>
+</footer>
+
+<script src="vendor/html2canvas.min.js" defer></script>
+<script src="vendor/jspdf.umd.min.js" defer></script>
+<script src="app.js" defer></script>
+</body>
+</html>
