@@ -164,7 +164,11 @@
         ok(pngCache[key] = c.toDataURL("image/png"));
       };
       img.onerror = fail;
-      img.src = url;
+      // Firefox i Safari nie rysują na canvasie SVG bez wymiarów, więc je dopisujemy
+      fetch(url).then((r) => r.text()).then((t) => {
+        if (!/<svg[^>]*\swidth=/.test(t)) t = t.replace("<svg", `<svg width="${Math.round(w * 3)}" height="${Math.round(h * 3)}"`);
+        img.src = "data:image/svg+xml;charset=utf-8," + encodeURIComponent(t);
+      }).catch(() => { img.src = url; });
     });
   }
 
