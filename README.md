@@ -31,6 +31,4 @@ Preset `Other`, bez komendy budowania.
 - Link z gotowymi danymi: `/?imie=Anna%20Kowalska&bieg=dzieci`
 - Przycisk Drukuj drukuje dyplom na A4 w poziomie (lub zapis jako PDF w wektorze).
 
-Kod QR: puste pole `.dyplom__qr` w `index.html` (112×112 px). Wstaw w jego miejsce `<img class="dyplom__qr" src="assets/qr-zbiorka.svg" alt="Kod QR zbiórki">`.
-
 Teksty dyplomu zmienisz w `app.js`, w obiekcie `BIEGI`.

@@ -34,7 +34,7 @@
     { grupa: "Patronat", h: 56, maxW: 120, opis: ["Prezydenta Miasta Głogowa", "Rafaela Rokaszewicza"], logo: [
       { nazwa: "Urząd Miasta Głogowa", plik: "urzad-miasta-glogowa" }
     ] },
-    { grupa: "Partnerzy", h: 40, maxW: 112, logo: [
+    { grupa: "Partnerzy", h: 36, maxW: 86, logo: [
       { nazwa: "Lubinpex", plik: "lubinpex" },
       { nazwa: "KGHM Polska Miedź", plik: "kghm" },
       { nazwa: "Powiat Głogowski", plik: "powiat-glogowski" },
