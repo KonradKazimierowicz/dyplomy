@@ -128,7 +128,7 @@
     $("dystans").textContent = b.dystans;
     $("tytul").textContent = b.tytul;
     $("tekst").textContent = b.tekst;
-    $("tasma").src = tasmaSrc(b.tasma);
+    $("tasma").src = $("tasmaGora").src = tasmaSrc(b.tasma);
 
     const n = czysteImie();
     imieTxt.textContent = n || (bieg() === "dzieci" ? "Imię dziecka" : "Imię i nazwisko");
